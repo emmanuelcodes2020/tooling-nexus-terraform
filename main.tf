@@ -4,8 +4,9 @@ resource "aws_instance" "tooling_nexus" {
   key_name        = var.key_name
   security_groups = [aws_security_group.tooling_nexus_sg.name]
   tags = {
-    Name = "tooling-nexus.${var.environment}"
+    Name = "nexus"
   }
+  user_data = file("nexus-userdata.sh")
 
 }
 
